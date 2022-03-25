@@ -1,92 +1,40 @@
-# LACPGM-MF6 Particle Tracking
+Overall philosophy: 
+this workflow is built with the goal of removing ArcGIS from our lives 
+requires a GDAL installation - try Anaconda: https://opensourceoptions.com/blog/how-to-install-gdal-with-anaconda/
+the scripts begin with function declarations; use folding to collapse the ones you don't need
+the scripts end with calls to those functions within for loops (I think traditionally these would be enclosed in an if __name__ == '__main__': statement)
 
-a suite of tools for setting up MODPATH simulations with the MODFLOW-6 Los Angeles Coastal Plain Groundwater Model (LACPGM-MF6) and visualizing results with map-like plots using GDAL 
+Suggestions for Streamlining: many of these scripts contain the same geospatial functions (e.g. row_col_to_utm(); ReprojectCoords(); lat_lon_labels(); zone_boundary())
+I am especially stoked about the method in zone_boundary()
+These could probably be worked into a separate package e.g. "gridmaptools"; you could then do something like import gridmaptools
 
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://code.usgs.gov/cawsc/project-work/lacpgm-mf6-particle-tracking.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://code.usgs.gov/cawsc/project-work/lacpgm-mf6-particle-tracking/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+3d_animation: processes pathline file to create 3D animations of flow (not currently in article or slides but they are quite cool)
+capture_time: processes time series file to create plots of time required for well capture (Figure 16)
+combined_sensitivity: processes pathline file to create figure demonstrating sensitity of results (vertical and lateral flow) to model extension approach and porosity (Figure 6 and 7)
+compute_likely_paths: processes pathline file to come up with a "representative" particle path for each water source; this was used to pass coordinates to DJ for cross-sections (Figure 12)
+create_hydrograph_key: generic LA model script for putting together a legend that describes the layers corresponding to the "official" report colors
+extend_model.py: reads in 2019_MF6_Model and writes EXT_1984_2004 model (extended through 2040 using stress period data 1984-2004)
+extend_model_backwards.py: reads in 2019_MF6_Model and writes EXT_2019_1999 model (extended through 2040 using stress period data 2019-1999)
+layer_flow.py: processes endpoint and pathline files to create plot of projected paths with layers called out as colors (Figure 13)
+map_figure1.py: attempt at making a basemap using Python; not the neatest but it has some good stuff (Figure 1)
+particle_combined.py: makes two-part figure with map of particle cells on left and particle configuration on right (Figure 5)
+particle_configuration.py: makes right part of Figure 5 (not currently used in article)
+particle_map.py: makes left part of Figure 5 (not currently used in article)
+pathline_3d.py: makes 3D pathline plots; these are difficult to render into an image that makes sense; rather these are best used in "interactive" matplotlib mode that allow you to play with the object
+plot_budget_and_percent_diff.py: compares LACPGM-MF6 and LACPGM-USG model budgets; taken from another directory so paths may need to be modified (Figure 3)
+plot_ghb_layer_thickness.py: makes figure of layer thicknesses at the Whittier  Narrows GHB (in presentation, slide 5, not in article)
+plot_head_map.py: makes map of 1971-1975 average heads in all layers in the Montebello Forebay (Figure 10)
+plot_pumping_recharge.py: analyzes pumping and recharge and then plots the most "representative" years selected (Figure 4)
+plot_spreading.py: makes bar chart of annual spreading grounds water (Figure 2)
+process_endpoint.py: analyzes endpoint file and plots stacked bar of layer endpoints (Figure 15) and zone endpoints (not used)
+process_pathline.py: the magnum opus, analyzes pathline file and plots pathlines on map-like visuals; lots of options to try out (Figure 9, Figure 14, slide 1, slide 29) 
+process_timseries.py: a very slow and inefficient script, analyzes time series file and computes time to leave Montebello Forebay; to use this for the first time set first_time = True and run it overnight, then use first_time = False (Figure 17)
+timeseries_animation.py: analyzes time series file and makes animations of particle movement (slides 16-17, not in article)
+tracer.py: does linear regression between tracer concentrations and particle #s (Figure 8, top)
+tracer_map.py: makes a map of particle locations for three time periods with layers called out as colors (Figure 8, bottom)
+write_coords.py: makes a list of UTM coordinates from the shapefile corresponding to cross-section A-A' in LA model report (auxiliary script)
+write_oc.py: changes output control (OC) package to output heads for all time steps needed for MODPATH (auxiliary script)
+write_sloc.py: writes starting locations for particles (auxiliary script)
+write_sloc_tracer.py: writes starting locations for particles in continuous-release simulation (auxiliary script)
+xsect_pathline1.py: maps particle paths onto cross-section A-A' (Figure 11)
+xsect_pathline2.py: maps particle paths onto "representative" cross-sections (Figure 12)
