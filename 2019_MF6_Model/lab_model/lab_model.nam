@@ -1,0 +1,22 @@
+BEGIN options
+  SAVE_FLOWS
+  NEWTON  UNDER_RELAXATION
+END options
+
+BEGIN packages
+  wel6  ..\external_files\lab_model.wel  wel
+  rch6  ..\external_files\lab_model.rch  rch
+  drn6  ..\external_files\lab_model.drn  drn
+  ghb6  ..\external_files\lab_model_ss.ghb  ghbss
+  ghb6  ..\external_files\lab_model_tr.ghb  ghbtr
+  hfb6  ..\external_files\lab_model.hfb  hfb
+  ic6  ..\external_files\lab_model.ic  ic
+  oc6  ..\external_files\lab_model.oc  oc
+  dis6  ..\external_files\lab_model.dis  dis
+  npf6  ..\external_files\lab_model.npf  npf
+  sto6  ..\external_files\lab_model.sto  sto
+  obs6  ..\external_files\lab_model.obs  head_obs
+  maw6  ..\external_files\lab_model.maw  maw
+  GHB6  ..\external_files\lab_model_la.ghb  la_ghb
+END packages
+
