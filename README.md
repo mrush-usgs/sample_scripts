@@ -9,8 +9,11 @@ I am especially stoked about the method in zone_boundary()
 These could probably be worked into a separate package e.g. "gridmaptools"; you could then do something like import gridmaptools
 
 3d_animation: processes pathline file to create 3D animations of flow (not currently in article or slides but they are quite cool)
+
 capture_time: processes time series file to create plots of time required for well capture (Figure 16)
+
 combined_sensitivity: processes pathline file to create figure demonstrating sensitity of results (vertical and lateral flow) to model extension approach and porosity (Figure 6 and 7)
+
 compute_likely_paths: processes pathline file to come up with a "representative" particle path for each water source; this was used to pass coordinates to DJ for cross-sections (Figure 12)
 create_hydrograph_key: generic LA model script for putting together a legend that describes the layers corresponding to the "official" report colors
 extend_model.py: reads in 2019_MF6_Model and writes EXT_1984_2004 model (extended through 2040 using stress period data 1984-2004)
