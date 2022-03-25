@@ -1,10 +1,9 @@
-extend_model.py: reads in 2019_MF6_Model and writes EXT_1984_2004 model (extended through 2040 using stress period data 1984-2004)
+Overall philosophy: 
+this workflow is built with the goal of removing ArcGIS from our lives 
+requires a GDAL installation - try Anaconda: https://opensourceoptions.com/blog/how-to-install-gdal-with-anaconda/
+the scripts begin with function declarations; use folding to collapse the ones you don't need
+the scripts end with calls to those functions within for loops (I think traditionally these would be enclosed in an if __name__ == '__main__': statement)
 
-extend_model_backwards.py: reads in 2019_MF6_Model and writes EXT_2019_1999 model (extended through 2040 using stress period data 2019-1999)
-
-write_oc.py: changes output control (OC) package to output heads for all time steps needed for MODPATH (auxiliary script)
-
-write_sloc.py: writes starting locations for particles (auxiliary script)
-
-write_sloc_tracer.py: writes starting locations for particles in continuous-release simulation (auxiliary script)
-
+Suggestions for Streamlining: many of these scripts contain the same geospatial functions (e.g. row_col_to_utm(); ReprojectCoords(); lat_lon_labels(); zone_boundary())
+check out the method in zone_boundary()
+these could probably be worked into a separate package e.g. "gridmaptools"; you could then do something like "import gridmaptools"
