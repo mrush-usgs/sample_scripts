@@ -3,13 +3,19 @@ Contains scripts and data files required for pre- and post-processing MODPATH si
 This workflow is built with the goal of removing ArcGIS from our lives 
 
 Requires a GDAL installation - try Anaconda:
+
 conda create --name pygdal
+
 conda activate pygdal
+
 conda install -c conda-forge gdal=2.4.4
 
 The latest GDAL distribution seems to cause problems with conversions from UTMs to Lat/Lon; specify gdal=2.4.4
 otherwise refer to:
 https://opensourceoptions.com/blog/how-to-install-gdal-with-anaconda/
+
+Scripts that render animations require an ffmpeg install:
+pip install ffmpeg-python
 
 Scripts generally begin with function declarations; use folding in your preferred IDE to collapse the ones you don't need
 
