@@ -175,7 +175,7 @@ def plot_mtb_particles(porosity_dict_, ep_dict_):
     fig, axes = plt.subplots(2, 2)
     axes = axes.flat
     basin_dict, subbasin_dict, basin_array, subbasin_array = build_basin_dict()
-    first_time_2 = False
+    first_time_2 = True
     if first_time_2:
         processed_dict = {}
         for phi in porosity_dict_.keys():
@@ -297,7 +297,7 @@ md = sim.get_model()
 maw = md.maw
 connection_data = maw.connectiondata.get_data()
 well_array = False
-first_time = False
+first_time = True
 for run in runs:
     if first_time:
         porosity_dict = {}

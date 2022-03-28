@@ -257,7 +257,7 @@ def build_data_structure(path_):
 def plot_heads():
     fig, axes = plt.subplots(3, 4, figsize=(5.4, 5.8))
     axes = axes.flat
-    model_head_path = os.path.join('EXT_1984_2004', 'lab_model')
+    model_head_path = os.path.join('..', 'EXT_1984_2004', 'lab_model')  # note, this model must be built, see preprocessing_scripts
     head_sim = flopy.mf6.MFSimulation.load(sim_ws=model_head_path, verbosity_level=0)
     head_file = head_sim.simulation_data.mfdata['lab_model', 'HDS', 'HEAD']
     head_sp_array = np.zeros([20, 12, 256, 312])
