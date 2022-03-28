@@ -2,6 +2,11 @@ import arcpy
 import numpy as np
 import os
 
+
+# as you can see, this script requires arcpy
+# coord_list.txt already exists in ../data/
+# accordingly, there shouldn't really be a need to run this
+# if necessary, have to run with an ArcPy Python interpreter
 input_feature_class = r'..\data\2017ReportSection\a_a.shp'
 coord_list = []
 with arcpy.da.SearchCursor(input_feature_class, ['SHAPE@']) as s_cur:
