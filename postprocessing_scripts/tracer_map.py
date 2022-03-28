@@ -9,7 +9,7 @@ import matplotlib.ticker as plticker
 
 
 def build_basin_dict():
-    basins = pd.read_csv(os.path.join('..', 'gwsubbasins.csv'))
+    basins = pd.read_csv(os.path.join('..', 'data', 'gwsubbasins.csv'))
     basin_dict_ = {}
     subbasin_dict_ = {}
     basin_names = ['West Coast', 'Central', 'Santa Monica', 'Hollywood', 'Orange']
@@ -284,7 +284,7 @@ dYCoordinate = 3777031.579092
 nrow = 256
 ncol = 312
 x, y = np.meshgrid(np.linspace(dXCoordinate, dXCoordinate + ncol * dCellSize, ncol + 1), np.linspace(dYCoordinate, dYCoordinate - nrow * dCellSize, nrow + 1))
-fname = os.path.join('tracer.tif')
+fname = os.path.join('..', 'basemaps', 'tracer.tif')
 img = plt.imread(os.path.join(fname))
 # gdal
 ds = gdal.Open(fname)

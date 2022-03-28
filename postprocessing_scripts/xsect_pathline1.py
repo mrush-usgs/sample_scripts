@@ -43,7 +43,7 @@ def build_data_structure(path_):
 
 
 def get_xsect_coords():
-    coord_list = np.loadtxt('..', 'data', 'coord_list.txt')
+    coord_list = np.loadtxt(os.path.join('..', 'data', 'coord_list.txt'))
     line = LineString(coord_list)
     n = int(1e3)
     distances = np.linspace(0, line.length, n)

@@ -341,8 +341,8 @@ sim = flopy.mf6.MFSimulation.load(sim_ws=any_sim_path, verbosity_level=0)
 md = sim.get_model()
 maw = md.maw
 connection_data = maw.connectiondata.get_data()
-well_df = pd.read_csv('..', 'data', 'Concentrations.csv')
-first_time = False
+well_df = pd.read_csv(os.path.join('..', 'data', 'Concentrations.csv'))
+first_time = True
 if first_time:
     porosity_dict = {}
     ep_dict = {}
