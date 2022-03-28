@@ -141,7 +141,7 @@ dYCoordinate = 3777031.579092
 nrow = 256
 ncol = 312
 x, y = np.meshgrid(np.linspace(dXCoordinate, dXCoordinate + ncol * dCellSize, ncol + 1), np.linspace(dYCoordinate, dYCoordinate - nrow * dCellSize, nrow + 1))
-fname = os.path.join('basemap.tif')
+fname = os.path.join('..', 'basemaps', 'basemap.tif')
 img = plt.imread(os.path.join(fname))
 # gdal
 ds = gdal.Open(fname)
@@ -157,12 +157,12 @@ scotts_colors = ['#FFFF00', '#FFD700', '#40E0D0', '#FF0000', '#00FF00', '#0000FF
                  '#A020F0', '#FFA500', '#BDB76B']
 run = 'EXT_1984_2004'
 porosity = '01'
-any_sim_path = os.path.join('2019_MF6_Model', 'lab_model')
+any_sim_path = os.path.join('..', '2019_MF6_Model', 'lab_model')
 sim = flopy.mf6.MFSimulation.load(sim_ws=any_sim_path, verbosity_level=0)
 md = sim.get_model()
 dis = md.dis
 idomain = dis.idomain.array
 figure_path = os.path.join('Figures', 'POROSITY' + porosity, run)
-sim_path = os.path.join('MODPATH', 'POROSITY', 'POROSITY_' + porosity, run, 'lab_model')
+sim_path = os.path.join('.', 'MODPATH', 'POROSITY', 'POROSITY_' + porosity, run, 'lab_model')
 pl_data, p_groups = build_data_structure(sim_path)
 compute_paths()
