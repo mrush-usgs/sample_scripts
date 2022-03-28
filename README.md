@@ -14,6 +14,9 @@ The latest GDAL distribution seems to cause problems with conversions from UTMs 
 otherwise refer to:
 https://opensourceoptions.com/blog/how-to-install-gdal-with-anaconda/
 
+Scripts that render animations require an ffmpeg install:
+pip install ffmpeg-python
+
 Scripts generally begin with function declarations; use folding in your preferred IDE to collapse the ones you don't need
 
 Scripts generally end with calls to those functions within for loops (I think traditionally these would be enclosed in an if __name__ == '__main__': statement)
