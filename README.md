@@ -15,7 +15,7 @@ otherwise refer to:
 https://opensourceoptions.com/blog/how-to-install-gdal-with-anaconda/
 
 Scripts that render animations require an ffmpeg install:
-pip install ffmpeg-python
+conda install -c conda-forge ffmpeg
 
 Scripts generally begin with function declarations; use folding in your preferred IDE to collapse the ones you don't need
 
