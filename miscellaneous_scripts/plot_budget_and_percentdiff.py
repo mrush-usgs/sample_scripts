@@ -7,7 +7,7 @@ import matplotlib.lines as mlines
 import os
 
 usg = pd.read_csv(os.path.join('..', 'data', 'USG.csv'))
-mf6 = pd.read_csv(os.path.join('..', 'data', 'Updated Budgets', 'LA_Water_Budget.csv'))
+mf6 = pd.read_csv(os.path.join('..', 'data', 'LA_Water_Budget.csv'))
 fig, axes = plt.subplots(2, 1, figsize=(13.33, 10))
 bud_list = ['WATER SPREADING',
             'PUMPING AND INJECTION',

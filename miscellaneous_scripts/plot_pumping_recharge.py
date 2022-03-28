@@ -169,7 +169,7 @@ def analyze_years():
 
 
 years = np.arange(1971, 2020)
-sim = flopy.mf6.MFSimulation.load(sim_ws=os.path.join('2019_MF6_Model', 'lab_model'), verbosity_level=0)
+sim = flopy.mf6.MFSimulation.load(sim_ws=os.path.join('..', '2019_MF6_Model', 'lab_model'), verbosity_level=0)
 md = sim.get_model()
 maw = md.maw
 rch = md.get_package('rch')

@@ -209,7 +209,7 @@ dYCoordinate = 3777031.579092
 nlay = 12
 nrow = 256
 ncol = 312
-fname = os.path.join(os.path.join('basemaps', 'basemap_local.tif'))
+fname = os.path.join(os.path.join('..', 'basemaps', 'basemap_local.tif'))
 img = plt.imread(os.path.join(fname))
 # gdal
 ds = gdal.Open(fname)
