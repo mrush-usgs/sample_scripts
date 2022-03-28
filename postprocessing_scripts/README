@@ -1,5 +1,4 @@
 Suggestions for Streamlining: many of these scripts contain the same geospatial functions (e.g. row_col_to_utm(); ReprojectCoords(); lat_lon_labels(); zone_boundary())
-I am especially stoked about the method in zone_boundary()
 These could probably be worked into a separate package e.g. "gridmaptools"; you could then do something like import gridmaptools
 
 3d_animation: processes pathline file to create 3D animations of flow (not currently in article or slides but they are quite cool)
@@ -7,6 +6,8 @@ These could probably be worked into a separate package e.g. "gridmaptools"; you 
 capture_time: processes time series file to create plots of time required for well capture (Figure 16)
 
 combined_sensitivity: processes pathline file to create figure demonstrating sensitity of results (vertical and lateral flow) to model extension approach and porosity (Figure 6 and 7)
+
+compute_likely_paths: processes pathline file to come up with a "representative" particle path for each water source; this was used to pass coordinates to DJ for cross-sections (Figure 12)
 
 layer_flow.py: processes endpoint and pathline files to create plot of projected paths with layers called out as colors (Figure 13)
 
@@ -29,3 +30,4 @@ tracer_map.py: makes a map of particle locations for three time periods with lay
 xsect_pathline1.py: maps particle paths onto cross-section A-A' (Figure 11)
 
 xsect_pathline2.py: maps particle paths onto "representative" cross-sections (Figure 12)
+
