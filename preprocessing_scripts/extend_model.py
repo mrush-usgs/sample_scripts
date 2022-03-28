@@ -67,7 +67,7 @@ start_sp = 52 # 1984
 end_sp = start_sp + new_sp # 2001
 
 print('\nmaking directories...')
-new_path = os.path.join('EXT_1981_2001')
+new_path = os.path.join('EXT_1984_2004')
 make_directories(new_path)
 
 # load the lacpgm
