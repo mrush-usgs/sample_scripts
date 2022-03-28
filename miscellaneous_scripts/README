@@ -1,5 +1,3 @@
-compute_likely_paths: processes pathline file to come up with a "representative" particle path for each water source; this was used to pass coordinates to DJ for cross-sections (Figure 12)
-
 create_hydrograph_key: generic LA model script for putting together a legend that describes the layers corresponding to the "official" report colors
 
 map_figure1.py: attempt at making a basemap using Python; not the neatest but it has some good stuff (Figure 1)
